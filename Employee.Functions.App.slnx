@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/azure-functions-app-dotnet.yml" />
+  </Folder>
   <Project Path="Employee.Functions.App.csproj" />
 </Solution>
