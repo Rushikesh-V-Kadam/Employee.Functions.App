@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+permissions:
+  id-token: write   # required for OIDC login
+  contents: read    # required for actions/checkout
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -33,7 +37,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          auth-type: id-token   # OIDC login
 
       - name: Deploy to Azure Function App
         uses: azure/functions-action@v1
